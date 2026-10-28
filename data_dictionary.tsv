@@ -1,0 +1,12 @@
+column	meaning	units	source_table	missing_coding	notes
+patient_id	Unique patient identifier (TCGA barcode)		patients	none	
+sex	Patient sex	male/female	patients	NA = not recorded	
+age_at_diagnosis	Patient age at diagnosis	years	patients	NA = not recorded	
+stage	AJCC pathologic tumor stage		patients	NA = not recorded	
+tissue_source_site	Institution/site that submitted the tumor sample		samples	NA = no sample on file	
+tmb_nonsynonymous	Tumor mutation burden, nonsynonymous	mutations per megabase	samples	NA = no sample on file	
+EGFR	Count of protein-altering mutations in EGFR	count	mutations (via samples)	0 = no such mutation found; column is never NA	Counts Frame_Shift_Del, Frame_Shift_Ins, In_Frame_Del, In_Frame_Ins, Missense_Mutation, Nonsense_Mutation, Nonstop_Mutation, Splice_Site, Translation_Start_Site; excludes Silent
+KEAP1	Count of protein-altering mutations in KEAP1	count	mutations (via samples)	0 = no such mutation found; column is never NA	Same variant types as EGFR
+KRAS	Count of protein-altering mutations in KRAS	count	mutations (via samples)	0 = no such mutation found; column is never NA	Same variant types as EGFR
+STK11	Count of protein-altering mutations in STK11	count	mutations (via samples)	0 = no such mutation found; column is never NA	Same variant types as EGFR
+TP53	Count of protein-altering mutations in TP53	count	mutations (via samples)	0 = no such mutation found; column is never NA	Same variant types as EGFR
