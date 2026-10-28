@@ -18,6 +18,7 @@
 
 - Query 1: expected 566 patients × 5 genes = 2830 rows; `nrow()` confirmed 2830.
 - Query 2: no fixed expected row count, so I checked `sum(site_stage_counts$n_patients)` equaled 566, confirming every patient was counted once and nobody was dropped by the `LEFT JOIN`.
+- Hand-verified one patient directly against the raw data: the feature table shows `TCGA-05-4382` with `EGFR = 2`. I queried the `mutations` table for that patient's sample and gene by hand (`SELECT ... WHERE s.patient_id = 'TCGA-05-4382' AND m.gene_symbol = 'EGFR'`), which returned 2 `Missense_Mutation` rows and nothing else — confirming the query's count matches the raw data, not just that the query ran without error.
 - Checked `nrow()` was 566 at every step of building `feature_table` (base table, pivoted gene table, final join), and compared the missing-value counts in the final table (52/71/54 for sex/age/stage) against the same counts run directly on `patients` earlier — they matched exactly.
 
 ## What I did myself
